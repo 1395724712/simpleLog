@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucky7/WorkSpace/simpleLog/main.cpp
+singleton.hpp
+/home/lucky7/WorkSpace/simpleLog/singleton.hpp
+time.h
+-
+pthread.h
+-
+iostream
+-
+vector
+-
+
+/home/lucky7/WorkSpace/simpleLog/singleton.hpp
+pthread.h
+-
+

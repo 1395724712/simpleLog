@@ -16,12 +16,12 @@ public:
     ~Singleton() = delete;
 
     static T& getInstance(){
-        pthread_mutex_lock(&mutex);
+        pthread_mutex_lock(&mutex_);
         if(instance_==nullptr){
             instance_ = new T();
         }
-        pthread_mutex_unlock(&mutex);
-        return instance_;
+        pthread_mutex_unlock(&mutex_);
+        return *instance_;
     }
 
 private:
@@ -33,8 +33,14 @@ private:
         }
 
     private:
-    }
-    static Deletor deletor;
-    pthread_mutex_t mutex_(PTHREAD_MUTEX_INITIALIZER);
+    };
+    static Delete deletor;
+    static pthread_mutex_t mutex_;
     static T* instance_ GUARDED_BY(mutex_);
 };
+
+template<typename T>
+T* Singleton<T>::instance_ = NULL;
+
+template<typename T>
+pthread_mutex_t Singleton<T>::mutex_ = PTHREAD_MUTEX_INITIALIZER;
