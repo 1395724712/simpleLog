@@ -9,7 +9,7 @@ set(CMAKE_CXX_FLAGS "-std=c++11")
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g")
 # c++编译器需要支持多线程
 set(CMAKE_CXX_FLAGS -pthread)
-
+set(CMAKE_BUILD_TYPE "Debug")
 #设置编译器
 set(CMAKE_CXX_COMPILER "g++")
 

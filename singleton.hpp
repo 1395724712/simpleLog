@@ -40,7 +40,7 @@ private:
 };
 
 template<typename T>
-T* Singleton<T>::instance_ = NULL;
+T* Singleton<T>::instance_ = nullptr;
 
 template<typename T>
 pthread_mutex_t Singleton<T>::mutex_ = PTHREAD_MUTEX_INITIALIZER;
