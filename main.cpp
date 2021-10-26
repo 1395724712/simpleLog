@@ -8,22 +8,23 @@
 using namespace std;
 class TestClass{
 public:
-    TestClass(){cout<<count_+1<<"\t"<<count_<<endl;};
-    ~TestClass();
+    TestClass():count_(2){cout<<count_+1<<"\t"<<count_<<endl;};
     void outputCount(){
-        // pthread_mutex_lock(&mutex_);
+        pthread_mutex_lock(&mutex_);
         cout<<count_<<endl;
-        // pthread_mutex_unlock(&mutex_);
+        pthread_mutex_unlock(&mutex_);
     }
 private:
-    static int count_;
-    // pthread_mutex_t mutex_;
+    // static int count_;
+    int count_;
+    pthread_mutex_t mutex_ = PTHREAD_MUTEX_INITIALIZER;
 };
 
-int TestClass::count_ = 0;
+// int TestClass::count_ = 0;
 
 void* prinfFunc(void* nonUsePara){
-    Singleton<TestClass*>::getInstance()->outputCount();
+    TestClass instance_ = Singleton<TestClass>::getInstance();
+    instance_.outputCount();
 }
 
 int main(){
@@ -38,6 +39,11 @@ int main(){
     }
     for(int i=0;i<10;i++)
         pthread_join(vec[i],nullptr);
+
+    // static TestClass* tmpClass = nullptr;
+    // tmpClass = new TestClass();
+
+    // tmpClass->outputCount();
 
     cout<<"running success"<<endl;
     return 0;
