@@ -1,3 +1,5 @@
+#ifndef SINGLETON_HPP
+#define SINGLETON_HPP
 #include<pthread.h>
 
 #if defined(__SUPPORT_TS_ANNOTATION__) || defined(__clang__)
@@ -44,3 +46,5 @@ T* Singleton<T>::instance_ = nullptr;
 
 template<typename T>
 pthread_mutex_t Singleton<T>::mutex_ = PTHREAD_MUTEX_INITIALIZER;
+
+#endif
