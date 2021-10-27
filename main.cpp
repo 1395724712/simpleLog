@@ -26,9 +26,8 @@ private:
 // int TestClass::count_ = 0;
 
 void* prinfFunc(void* nonUsePara){
-    // TestClass instance_ = Singleton<TestClass>::getInstance();
-    // instance_.outputCount();
-    Singleton<TestClass>::getInstance().outputCount();
+    sLog()<<to_string(1000);
+    // Singleton<LOG>::getInstance()<<to_string(1000);
 }
 
 int main(){
