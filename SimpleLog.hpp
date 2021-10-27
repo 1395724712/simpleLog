@@ -17,6 +17,7 @@ public:
         pthread_mutex_lock(&mutex_);
         out_<<data<<endl;
         pthread_mutex_unlock(&mutex_);
+        return out_;
     }
 private:
     ostream& out_;

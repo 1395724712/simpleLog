@@ -6,9 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/home/lucky7/WorkSpace/simpleLog/SimpleLog.hpp
+sys/types.h
+-
+time.h
+-
+iostream
+-
+string
+-
+pthread.h
+-
+
 /home/lucky7/WorkSpace/simpleLog/main.cpp
 singleton.hpp
 /home/lucky7/WorkSpace/simpleLog/singleton.hpp
+SimpleLog.hpp
+/home/lucky7/WorkSpace/simpleLog/SimpleLog.hpp
 time.h
 -
 pthread.h
